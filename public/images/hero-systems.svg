@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="560" viewBox="0 0 480 560" fill="none">
+  <defs>
+    <linearGradient id="desk" x1="40" y1="380" x2="440" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E0E7FF"/>
+      <stop offset="1" stop-color="#C7D2FE"/>
+    </linearGradient>
+    <linearGradient id="screen1" x1="80" y1="120" x2="220" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#312E81"/>
+      <stop offset="1" stop-color="#4F46E5"/>
+    </linearGradient>
+    <linearGradient id="screen2" x1="240" y1="100" x2="400" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="laptop" x1="120" y1="320" x2="340" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#64748B"/>
+      <stop offset="1" stop-color="#334155"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="560" rx="32" fill="#F8FAFC"/>
+  <ellipse cx="240" cy="500" rx="200" ry="28" fill="#CBD5E1" opacity="0.35"/>
+
+  <!-- Server / tower -->
+  <rect x="48" y="200" width="56" height="220" rx="8" fill="#475569"/>
+  <rect x="56" y="212" width="40" height="10" rx="2" fill="#22D3EE" opacity="0.9"/>
+  <rect x="56" y="232" width="40" height="10" rx="2" fill="#A78BFA" opacity="0.85"/>
+  <rect x="56" y="252" width="40" height="10" rx="2" fill="#34D399" opacity="0.9"/>
+  <rect x="56" y="280" width="40" height="120" rx="4" fill="#334155"/>
+  <circle cx="76" cy="310" r="6" fill="#94A3B8"/>
+  <circle cx="76" cy="330" r="6" fill="#94A3B8"/>
+
+  <!-- Desk -->
+  <path d="M32 400h416v24H32v-24z" fill="url(#desk)"/>
+  <rect x="32" y="400" width="416" height="8" fill="#A5B4FC" opacity="0.5"/>
+
+  <!-- Monitor left -->
+  <rect x="72" y="88" width="176" height="200" rx="12" fill="#1E293B"/>
+  <rect x="80" y="96" width="160" height="176" rx="6" fill="url(#screen1)"/>
+  <path d="M92 120h136M92 140h100M92 160h120M92 180h80" stroke="#A5B4FC" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <path d="M92 210h60l20 20h56" stroke="#FDE68A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+  <rect x="148" y="288" width="24" height="48" fill="#64748B"/>
+  <rect x="120" y="328" width="80" height="8" rx="2" fill="#94A3B8"/>
+
+  <!-- Monitor right -->
+  <rect x="248" y="72" width="188" height="216" rx="12" fill="#1E293B"/>
+  <rect x="256" y="80" width="172" height="192" rx="6" fill="url(#screen2)"/>
+  <rect x="268" y="100" width="148" height="72" rx="4" fill="#0F172A" opacity="0.4"/>
+  <circle cx="292" cy="136" r="16" fill="#38BDF8" opacity="0.8"/>
+  <path d="M320 124l24 24-24 24" stroke="#F472B6" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="268" y="188" width="148" height="6" rx="2" fill="#E2E8F0" opacity="0.35"/>
+  <rect x="268" y="202" width="100" height="6" rx="2" fill="#E2E8F0" opacity="0.25"/>
+  <rect x="330" y="288" width="24" height="56" fill="#64748B"/>
+  <rect x="300" y="336" width="84" height="8" rx="2" fill="#94A3B8"/>
+
+  <!-- Laptop -->
+  <path d="M140 352h200v88c0 8-6 14-14 14H154c-8 0-14-6-14-14v-88z" fill="url(#laptop)"/>
+  <rect x="152" y="364" width="176" height="100" rx="4" fill="#0F172A"/>
+  <rect x="160" y="372" width="160" height="84" rx="2" fill="#1E293B"/>
+  <path d="M172 392h48M172 408h120M172 424h90" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" opacity="0.85" font-family="monospace"/>
+  <path d="M172 392h48" stroke="#4ADE80" stroke-width="2"/>
+  <path d="M120 452h240v12H120v-12z" fill="#475569"/>
+  <path d="M110 464h260v8c0 4-4 8-8 8H118c-4 0-8-4-8-8v-8z" fill="#64748B"/>
+
+  <!-- Floating nodes (cloud / systems) -->
+  <circle cx="400" cy="160" r="28" fill="#FDE047" opacity="0.9"/>
+  <circle cx="420" cy="200" r="18" fill="#FB923C" opacity="0.85"/>
+  <path d="M388 148h24M400 136v24" stroke="#CA8A04" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="32" cy="120" r="20" fill="#A78BFA" opacity="0.75"/>
+  <path d="M24 120h16M32 112v16" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Keyboard hint -->
+  <rect x="200" y="408" width="80" height="36" rx="6" fill="#E2E8F0" opacity="0.9"/>
+  <rect x="208" y="416" width="10" height="8" rx="1" fill="#64748B"/>
+  <rect x="222" y="416" width="10" height="8" rx="1" fill="#64748B"/>
+  <rect x="236" y="416" width="10" height="8" rx="1" fill="#64748B"/>
+  <rect x="250" y="416" width="10" height="8" rx="1" fill="#64748B"/>
+  <rect x="264" y="416" width="10" height="8" rx="1" fill="#6366F1"/>
+</svg>

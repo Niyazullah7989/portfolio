@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="200" viewBox="0 0 1200 200" fill="none">
+  <defs>
+    <linearGradient id="s1" x1="0" y1="0" x2="1200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E0E7FF"/>
+      <stop offset="0.33" stop-color="#FCE7F3"/>
+      <stop offset="0.66" stop-color="#D1FAE5"/>
+      <stop offset="1" stop-color="#FEF3C7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="200" rx="24" fill="url(#s1)"/>
+  <circle cx="100" cy="100" r="36" fill="#6366F1" opacity="0.35"/>
+  <circle cx="220" cy="70" r="24" fill="#EC4899" opacity="0.35"/>
+  <circle cx="380" cy="120" r="40" fill="#10B981" opacity="0.3"/>
+  <circle cx="540" cy="80" r="28" fill="#F59E0B" opacity="0.35"/>
+  <circle cx="700" cy="110" r="32" fill="#3B82F6" opacity="0.3"/>
+  <circle cx="860" cy="90" r="26" fill="#8B5CF6" opacity="0.35"/>
+  <circle cx="1020" cy="100" r="38" fill="#EF4444" opacity="0.25"/>
+  <circle cx="1120" cy="70" r="20" fill="#14B8A6" opacity="0.4"/>
+  <path d="M80 150h1040" stroke="#94A3B8" stroke-width="2" stroke-dasharray="8 12" opacity="0.4"/>
+</svg>
