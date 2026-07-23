@@ -27,9 +27,30 @@ function experienceText(): string {
   return profile.experience
     .map(
       (x) =>
-        `**${x.title}** at ${x.company} (${x.period})\n${x.detail}`,
+        `**${x.title}** at ${x.company} (${x.period})\n${x.points.map((p) => `• ${p}`).join('\n')}`,
     )
     .join('\n\n')
+}
+
+function qaSkillsText(): string {
+  const qaTitles = ['Automation', 'Software Testing', 'API Testing']
+  return profile.skillGroups
+    .filter((g) => qaTitles.includes(g.title))
+    .map((g) => `**${g.title}:** ${g.items.join(', ')}`)
+    .join('\n')
+}
+
+function qaExperiencePoints(): string {
+  const points = profile.experience.flatMap((job) =>
+    job.points.filter((p) =>
+      /test|selenium|playwright|automation|qa|api|regression|cucumber|testng|postman|restassured/i.test(
+        p,
+      ),
+    ),
+  )
+  return points.length
+    ? points.map((p) => `• ${p}`).join('\n')
+    : profile.experience.flatMap((job) => job.points.map((p) => `• ${p}`)).join('\n')
 }
 
 /** Answers from public portfolio data only — keyword / phrase matching. */
@@ -67,7 +88,7 @@ export function getChatReply(raw: string): string {
     q.includes('message him') ||
     q.includes('write to')
   ) {
-    return `**Contact**\n• Email: ${profile.contact.email}\n• Phone: ${profile.contact.phoneDisplay}\n• WhatsApp: ${profile.contact.whatsapp}\n• LinkedIn: ${profile.contact.linkedin}\n• GitHub: ${profile.contact.github}`
+    return `**Contact**\n• Email: ${profile.contact.emails.join('\n• Email: ')}\n• Phone: ${profile.contact.phoneDisplay}\n• WhatsApp: ${profile.contact.whatsapp}\n• LinkedIn: ${profile.contact.linkedin}\n• GitHub: ${profile.contact.github}`
   }
 
   if (q.includes('linkedin') || q.includes('linked in')) {
@@ -177,11 +198,9 @@ export function getChatReply(raw: string): string {
     q.includes('automation') ||
     q.includes('junit')
   ) {
-    const qaGroup = profile.skillGroups.find((g) =>
-      g.title.toLowerCase().includes('test'),
-    )
-    const qa = qaGroup?.items.join(', ') ?? ''
-    return `**Testing & QA focus:** ${qa}\n\nFrom his experience: ${profile.experience[0]?.detail ?? ''}`
+    const qa = qaSkillsText()
+    const exp = qaExperiencePoints()
+    return `**Testing & QA focus:**\n${qa}\n\nFrom his experience:\n${exp}`
   }
 
   if (

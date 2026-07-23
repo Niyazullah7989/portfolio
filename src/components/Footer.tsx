@@ -3,18 +3,14 @@ import { profile } from '../data/profile'
 export function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer className="border-t border-border-strong bg-white/60 px-4 py-12 sm:px-6">
-      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-        <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
-          © {year} {profile.name}
-          <span className="mx-2 text-border-strong" aria-hidden>
-            /
-          </span>
-          Built with intent
+    <footer className="border-t border-border px-4 py-10 sm:px-6">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
+        <p className="text-sm text-muted">
+          © {year} {profile.name}. All rights reserved.
         </p>
         <a
           href="#top"
-          className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-accent transition-colors hover:text-accent-warm"
+          className="text-sm font-medium text-accent transition-colors hover:text-accent-pink"
         >
           Back to top ↑
         </a>

@@ -1,7 +1,14 @@
 import { profile } from '../data/profile'
-import { IconGithub, IconLinkedIn, IconMail, IconPhone } from './Icons'
+import { ContactForm } from './ContactForm'
+import { IconGithub, IconLinkedIn, IconMail, IconPhone, IconWhatsApp } from './Icons'
 import { Reveal } from './Reveal'
 import { SectionHeading } from './SectionHeading'
+
+const whatsappMessage = encodeURIComponent(
+  `Hi ${profile.name.split(' ')[0]}, I saw your portfolio and would like to connect.`,
+)
+
+const whatsappHref = `${profile.contact.whatsapp}?text=${whatsappMessage}`
 
 const links = [
   {
@@ -15,12 +22,6 @@ const links = [
     href: `tel:${profile.contact.phoneTel}`,
     icon: IconPhone,
     external: false,
-  },
-  {
-    label: 'WhatsApp',
-    href: profile.contact.whatsapp,
-    icon: IconPhone,
-    external: true,
   },
   {
     label: 'LinkedIn',
@@ -40,56 +41,82 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-28 border-t border-border px-4 py-28 sm:px-6 sm:py-36"
+      className="contact-section scroll-mt-24 px-4 py-24 sm:px-6 sm:py-32"
     >
       <Reveal>
         <div className="mx-auto max-w-6xl">
-          <SectionHeading
-            index="06"
-            eyebrow="Contact"
-            title="Let’s talk about your next release"
-            description="Full-time or contract — especially where Java/Spring, React, and serious testing discipline intersect."
-          />
-          <div className="card-glow relative overflow-hidden rounded-3xl border border-border-strong bg-gradient-to-br from-white via-indigo-50/40 to-pink-50/30 p-8 sm:p-12">
-            <div
-              className="pointer-events-none absolute -left-20 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-mist blur-3xl"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute -right-16 bottom-0 h-48 w-48 rounded-full bg-blush blur-3xl"
-              aria-hidden
-            />
-            <div className="relative flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-              <div className="flex flex-col gap-3 lg:max-w-xl">
-                <a
-                  href={`mailto:${profile.contact.email}`}
-                  className="font-display break-all text-2xl font-bold tracking-tight text-ink transition-colors hover:text-accent sm:break-normal sm:text-3xl"
-                >
-                  {profile.contact.email}
-                </a>
-                <a
-                  href={`tel:${profile.contact.phoneTel}`}
-                  className="font-display w-fit text-xl font-bold tracking-tight text-ink transition-colors hover:text-accent sm:text-2xl"
-                >
-                  {profile.contact.phoneDisplay}
-                </a>
-              </div>
-              <ul className="flex flex-wrap gap-3">
+          <SectionHeading title="Contact" />
+          <p className="-mt-8 mb-12 text-center text-sm text-muted sm:mb-14">
+            Send a message or reach out directly — open to full-time &amp; contract roles.
+          </p>
+
+          <div className="contact-split">
+            <div className="contact-panel contact-panel--form">
+              <h3 className="contact-panel__title font-display">Send a message</h3>
+              <ContactForm />
+            </div>
+
+            <div className="contact-panel contact-panel--info">
+              <h3 className="contact-panel__title font-display">Get in touch</h3>
+              <p className="contact-panel__text">
+                Open to full-time and contract roles — especially where Java/Spring, React, and
+                disciplined QA intersect.
+              </p>
+
+              <ul className="contact-details">
+                {profile.contact.emails.map((addr) => (
+                  <li key={addr}>
+                    <a href={`mailto:${addr}`} className="contact-details__link">
+                      <span className="contact-details__icon">
+                        <IconMail className="h-4 w-4" />
+                      </span>
+                      <span>
+                        <span className="contact-details__label font-mono">Email</span>
+                        <span className="contact-details__value">{addr}</span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+                <li>
+                  <a href={`tel:${profile.contact.phoneTel}`} className="contact-details__link">
+                    <span className="contact-details__icon">
+                      <IconPhone className="h-4 w-4" />
+                    </span>
+                    <span>
+                      <span className="contact-details__label font-mono">Phone</span>
+                      <span className="contact-details__value">{profile.contact.phoneDisplay}</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+
+              <ul className="contact-links">
                 {links.map(({ label, href, icon: Icon, external }) => (
                   <li key={label}>
                     <a
                       href={href}
-                      {...(external
-                        ? { target: '_blank', rel: 'noreferrer' }
-                        : {})}
-                      className="inline-flex items-center gap-2.5 rounded-2xl border border-border-strong bg-white/90 px-5 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-muted shadow-sm transition-[border-color,color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:text-ink hover:shadow-md"
+                      {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
+                      className="contact-links__pill"
                     >
-                      <Icon className="h-4 w-4 text-accent" />
+                      <Icon className="h-4 w-4 text-accent-cyan" />
                       {label}
                     </a>
                   </li>
                 ))}
               </ul>
+
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-whatsapp"
+              >
+                <IconWhatsApp className="h-5 w-5 shrink-0" />
+                <span>
+                  <span className="contact-whatsapp__title">Chat on WhatsApp</span>
+                  <span className="contact-whatsapp__sub font-mono">Quick reply · pre-filled hello</span>
+                </span>
+              </a>
             </div>
           </div>
         </div>

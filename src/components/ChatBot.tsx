@@ -106,13 +106,13 @@ export function ChatBot() {
   }
 
   return (
-    <div className="fixed bottom-5 right-5 z-[100] flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+    <div className="chatbot-root fixed z-[100] flex flex-col items-end gap-3">
       {open ? (
         <div
           id={panelId}
           role="dialog"
           aria-label="Portfolio assistant chat"
-          className="flex max-h-[min(72vh,520px)] w-[min(100vw-2.5rem,400px)] flex-col overflow-hidden rounded-2xl border border-border-strong bg-white shadow-2xl shadow-slate-900/15 ring-1 ring-indigo-100"
+          className="chatbot-panel flex max-h-[min(72vh,520px)] w-[min(calc(100vw-1.5rem),400px)] flex-col overflow-hidden rounded-2xl border border-border-strong bg-white shadow-2xl shadow-slate-900/15 ring-1 ring-indigo-100"
         >
           <div className="flex items-center justify-between border-b border-border bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-3">
             <div>
@@ -206,7 +206,7 @@ export function ChatBot() {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-indigo-600 text-white shadow-lg shadow-indigo-600/35 transition-transform hover:scale-105 hover:bg-indigo-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300"
+        className="chatbot-fab flex h-14 w-14 items-center justify-center rounded-full bg-indigo-600 text-white shadow-lg shadow-indigo-600/35 transition-transform hover:scale-105 hover:bg-indigo-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300"
         aria-expanded={open}
         aria-controls={open ? panelId : undefined}
         aria-label={open ? 'Close portfolio chat' : 'Open portfolio AI chat'}

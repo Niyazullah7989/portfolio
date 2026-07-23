@@ -12,20 +12,17 @@ import { Skills } from './components/Skills'
 function App() {
   return (
     <>
-      <div className="atmosphere" aria-hidden>
-        <div className="atmosphere__mesh" />
-        <div className="atmosphere__grid" />
-        <div className="atmosphere__grain" />
-      </div>
+      <div className="page-background" aria-hidden />
+      <div className="page-background__overlay" aria-hidden />
       <div className="relative z-10 min-h-svh text-ink">
         <Header />
         <main>
           <Hero />
           <About />
           <Skills />
-          <Projects />
           <Experience />
           <Education />
+          <Projects />
           <Contact />
         </main>
         <Footer />

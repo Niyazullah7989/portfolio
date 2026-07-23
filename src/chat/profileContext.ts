@@ -16,7 +16,7 @@ export function buildProfileContextForAI(): string {
   const exp = profile.experience
     .map(
       (e) =>
-        `- ${e.title} at ${e.company} (${e.period})\n  ${e.detail}`,
+        `- ${e.title} at ${e.company} (${e.period})\n${e.points.map((p) => `  • ${p}`).join('\n')}`,
     )
     .join('\n\n')
 
@@ -50,7 +50,7 @@ export function buildProfileContextForAI(): string {
     edu,
     '',
     'CONTACT:',
-    `Email: ${profile.contact.email}`,
+    `Email: ${profile.contact.emails.join(', ')}`,
     `Phone: ${profile.contact.phoneDisplay}`,
     `WhatsApp: ${profile.contact.whatsapp}`,
     `LinkedIn: ${profile.contact.linkedin}`,
